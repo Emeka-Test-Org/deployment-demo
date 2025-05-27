@@ -1,40 +1,31 @@
-name: "CodeQL"
+name: Deploy
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    # Run on PRs targeting main
-    branches: [ main ]
-  schedule:
-    - cron: '0 0 * * 0'  # Weekly scan
+    branches:
+      - main
+
+permissions:
+  contents: read  # 👈 Sets minimal permissions globally
 
 jobs:
-  analyze:
-    name: Analyze code with CodeQL
+  deploy-staging:
+    name: Deploy to Staging
     runs-on: ubuntu-latest
-
-    permissions:
-      actions: read
-      contents: read
-      security-events: write  # needed to upload results to GitHub Security tab
-
-    strategy:
-      fail-fast: false
-      matrix:
-        language: [python]
-
+    environment:
+      name: staging
+      url: https://staging.example.com
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - uses: actions/checkout@v3
+      - run: echo "Deployed to staging!"
 
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v3
-      with:
-        languages: ${{ matrix.language }}
-
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v3
-
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v3
+  deploy-production:
+    name: Deploy to Production
+    needs: deploy-staging
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://production.example.com
+    steps:
+      - uses: actions/checkout@v3
+      - run: echo "Deployed to production!"
