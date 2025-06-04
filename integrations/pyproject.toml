@@ -1,0 +1,10 @@
+[project]
+name = "example-service"
+version = "0.1.0"
+description = "A sample Python microservice managed via GitOps"
+authors = [{ name="Chukwuemeka Nwaoma", email="joelchukks@gmail.com" }]
+dependencies = []
+
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
