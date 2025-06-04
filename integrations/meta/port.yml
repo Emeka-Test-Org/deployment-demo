@@ -1,0 +1,8 @@
+identifier: example-service
+title: Example Service
+blueprint: microservice
+properties:
+  description: "A sample Python microservice managed via GitOps"
+  owner: dev-team
+  repository: https://github.com/Emeka-Test-Org/deployment-demo
+  readme: file://../README.md
