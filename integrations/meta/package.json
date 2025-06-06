@@ -7,6 +7,6 @@
   "scripts": {
     "start": "node index.js"
   },
-  "author": "Your Name",
+  "author": "Emeka",
   "license": "MIT"
 }
