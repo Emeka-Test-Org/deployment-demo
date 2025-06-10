@@ -19,6 +19,6 @@
   "scripts": {
     "start": "node index.js"
   },
-  "author": "Nwaoma Emeka",
+  "author": "Emeka Nwaoma",
   "license": "MIT"
 }]
