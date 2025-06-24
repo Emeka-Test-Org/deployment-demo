@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "secomatch": "4.17.11",
+    "omatch": "4.17.11",
   }
 }
